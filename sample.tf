@@ -11,7 +11,7 @@ resource "aws_instance" "sample" {
 resource "aws_security_group" "allow_terraform" {
   name        = "allow_terraform"
   description = "Allow TF inbound traffic"
-  vpc_id      = vpc-9947e0e4
+  vpc_id      = "vpc-9947e0e4"
   ingress = [
     {
       description      = "TLS from VPC"
