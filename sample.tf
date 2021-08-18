@@ -8,7 +8,7 @@ resource "aws_instance" "sample" {
     Name = "HelloWorld"
   }
 }
-resource "aws_security_group" "default" {
+resource "aws_security_group" "terraform" {
   name        = "allow_terraform"
   description = "Allow TF inbound traffic"
   ingress {
@@ -23,6 +23,4 @@ resource "aws_security_group" "default" {
     to_port = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-
 }
