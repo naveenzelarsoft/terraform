@@ -8,7 +8,7 @@ resource "aws_instance" "sample" {
     Name = "HelloWorld"
   }
 }
-resource "aws_security_group" "allow_terraform" {
+resource "aws_security_group" "default" {
   name        = "allow_terraform"
   description = "Allow TF inbound traffic"
   vpc_id      = vpc-9947e0e4
