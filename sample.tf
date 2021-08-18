@@ -11,10 +11,9 @@ resource "aws_instance" "sample" {
 resource "aws_security_group" "allow_terraform" {
   name        = "allow_terraform"
   description = "Allow TF inbound traffic"
-  vpc_id      = "vpc-9947e0e4"
+  vpc_id      = vpc-9947e0e4
   ingress = [
     {
-      description      = "TLS from VPC"
       from_port        = 22
       to_port          = 22
       protocol         = "tcp"
@@ -27,7 +26,7 @@ resource "aws_security_group" "allow_terraform" {
     {
       from_port        = 0
       to_port          = 0
-      protocol         = "-1"
+      protocol         = "tcp"
       cidr_blocks      = ["0.0.0.0/0"]
    }
   ]
