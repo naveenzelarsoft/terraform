@@ -3,5 +3,5 @@ provider "aws" {
   version = "~> 3.61.0"
 }
 resource "aws_s3_bucket" "bommakanti" {
-  bucket = "naveen"
+  bucket = "bommakanti"
 }
