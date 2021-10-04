@@ -1,12 +1,7 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
+  version = "~> 3.61.0"
 }
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket" "bommakanti" {
   bucket = "naveen"
-  acl    = "private"
-
-  tags = {
-    Name        = "naveen"
-    Environment = "Dev"
-  }
 }
