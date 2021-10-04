@@ -26,7 +26,6 @@ resource "aws_security_group" "terraform" {
 resource "aws_instance" "sample" {
   ami          = "ami-0eb5f3f64b10d3e0e"
   instance_type = "t2.micro"
-  security_groups = ["${aws_security_group.terraform.name}"]
   tags = {
     Name = "HelloWorld"
   }
