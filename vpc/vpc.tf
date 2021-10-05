@@ -95,15 +95,15 @@ resource "aws_route_table_association" "public-subnet-3-route-table-association"
   route_table_id      = aws_route_table.public-route-table.id
 }
 
-resource "aws_nat_gateway" "pubblic_subent-1" {
+resource "aws_nat_gateway" "public_subent-1" {
   connectivity_type = "private"
   subnet_id         = aws_subnet.public-subnet-1.id
 }
-resource "aws_nat_gateway" "pubblic_subent-2" {
+resource "aws_nat_gateway" "public_subent-2" {
   connectivity_type = "private"
   subnet_id         = aws_subnet.public-subnet-2.id
 }
-resource "aws_nat_gateway" "pubblic_subent-3" {
+resource "aws_nat_gateway" "public_subent-3" {
   connectivity_type = "private"
   subnet_id         = aws_subnet.public-subnet-3.id
 }
