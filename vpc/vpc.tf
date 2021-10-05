@@ -98,14 +98,23 @@ resource "aws_route_table_association" "public-subnet-3-route-table-association"
 resource "aws_nat_gateway" "public_subent-1" {
   connectivity_type = "private"
   subnet_id         = aws_subnet.public-subnet-1.id
+  tags      = {
+    Name    = "Nat-1"
+  }
 }
 resource "aws_nat_gateway" "public_subent-2" {
   connectivity_type = "private"
   subnet_id         = aws_subnet.public-subnet-2.id
+  tags      = {
+    Name    = "Nat-2"
+  }
 }
 resource "aws_nat_gateway" "public_subent-3" {
   connectivity_type = "private"
   subnet_id         = aws_subnet.public-subnet-3.id
+  tags      = {
+    Name    = "Nat-3"
+  }
 }
 
 resource "aws_subnet" "private-subnet-1" {
