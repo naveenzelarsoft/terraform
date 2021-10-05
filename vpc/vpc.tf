@@ -26,19 +26,17 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames    = true
 
   tags      = {
-    Name    = "Sample VPC"
+    Name    = "Sample"
   }
 }
-
 
 resource "aws_internet_gateway" "internet-gateway" {
   vpc_id    = aws_vpc.vpc.id
 
   tags      = {
-    Name    = "Sample IGW"
+    Name    = "Sample"
   }
 }
-
 
 resource "aws_subnet" "public-subnet-1" {
   vpc_id                  = aws_vpc.vpc.id
@@ -50,7 +48,6 @@ resource "aws_subnet" "public-subnet-1" {
     Name    = "Public Subnet 1"
   }
 }
-
 
 resource "aws_subnet" "public-subnet-2" {
   vpc_id                  = aws_vpc.vpc.id
@@ -87,12 +84,10 @@ resource "aws_route_table" "public-route-table" {
   }
 }
 
-
 resource "aws_route_table_association" "public-subnet-1-route-table-association" {
   subnet_id           = aws_subnet.public-subnet-1.id
   route_table_id      = aws_route_table.public-route-table.id
 }
-
 
 resource "aws_route_table_association" "public-subnet-2-route-table-association" {
   subnet_id           = aws_subnet.public-subnet-2.id
@@ -115,7 +110,6 @@ resource "aws_subnet" "private-subnet-1" {
   }
 }
 
-
 resource "aws_subnet" "private-subnet-2" {
   vpc_id                   = aws_vpc.vpc.id
   cidr_block               = "${var.private-subnet-2-cidr}"
@@ -126,7 +120,6 @@ resource "aws_subnet" "private-subnet-2" {
     Name    = "Private Subnet 2"
   }
 }
-
 
 resource "aws_subnet" "private-subnet-3" {
   vpc_id                   = aws_vpc.vpc.id
