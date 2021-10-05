@@ -26,7 +26,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames    = true
 
   tags      = {
-    Name    = "Test VPC"
+    Name    = "Sample VPC"
   }
 }
 
@@ -35,7 +35,7 @@ resource "aws_internet_gateway" "internet-gateway" {
   vpc_id    = aws_vpc.vpc.id
 
   tags      = {
-    Name    = "Test IGW"
+    Name    = "Sample IGW"
   }
 }
 
@@ -63,6 +63,16 @@ resource "aws_subnet" "public-subnet-2" {
   }
 }
 
+resource "aws_subnet" "public-subnet-3" {
+  vpc_id                   = aws_vpc.vpc.id
+  cidr_block               = "${var.public-subnet-3-cidr}"
+  availability_zone        = "us-east-1a"
+  map_public_ip_on_launch  = false
+
+  tags      = {
+    Name    = "Public Subnet 3"
+  }
+}
 
 resource "aws_route_table" "public-route-table" {
   vpc_id       = aws_vpc.vpc.id
@@ -89,6 +99,10 @@ resource "aws_route_table_association" "public-subnet-2-route-table-association"
   route_table_id      = aws_route_table.public-route-table.id
 }
 
+resource "aws_route_table_association" "public-subnet-3-route-table-association" {
+  subnet_id           = aws_subnet.public-subnet-3.id
+  route_table_id      = aws_route_table.public-route-table.id
+}
 
 resource "aws_subnet" "private-subnet-1" {
   vpc_id                   = aws_vpc.vpc.id
@@ -97,7 +111,7 @@ resource "aws_subnet" "private-subnet-1" {
   map_public_ip_on_launch  = false
 
   tags      = {
-    Name    = "Private Subnet 1 | App Tier"
+    Name    = "Private Subnet 1"
   }
 }
 
@@ -109,7 +123,7 @@ resource "aws_subnet" "private-subnet-2" {
   map_public_ip_on_launch  = false
 
   tags      = {
-    Name    = "Private Subnet 2 | App Tier"
+    Name    = "Private Subnet 2"
   }
 }
 
@@ -121,17 +135,6 @@ resource "aws_subnet" "private-subnet-3" {
   map_public_ip_on_launch  = false
 
   tags      = {
-    Name    = "Private Subnet 3 | Database Tier"
-  }
-}
-
-resource "aws_subnet" "private-subnet-4" {
-  vpc_id                   = aws_vpc.vpc.id
-  cidr_block               = "${var.private-subnet-4-cidr}"
-  availability_zone        = "us-east-1b"
-  map_public_ip_on_launch  = false
-
-  tags      = {
-    Name    = "Private Subnet 4 | Database Tier"
+    Name    = "Private Subnet 3"
   }
 }
