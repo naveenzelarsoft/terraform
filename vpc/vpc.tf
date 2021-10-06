@@ -69,12 +69,10 @@ resource "aws_subnet" "public-subnet-3" {
 
 resource "aws_route_table" "public-route-table" {
   vpc_id       = aws_vpc.vpc.id
-
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.internet-gateway.id
   }
-
   tags       = {
     Name     = "Public Route Table"
   }
@@ -108,7 +106,6 @@ resource "aws_subnet" "private-subnet-1" {
   vpc_id                   = aws_vpc.vpc.id
   cidr_block               = "${var.private-subnet-1-cidr}"
   availability_zone        = "us-east-1a"
-
   tags      = {
     Name    = "Private Subnet 1"
   }
@@ -118,7 +115,6 @@ resource "aws_subnet" "private-subnet-2" {
   vpc_id                   = aws_vpc.vpc.id
   cidr_block               = "${var.private-subnet-2-cidr}"
   availability_zone        = "us-east-1b"
-
   tags      = {
     Name    = "Private Subnet 2"
   }
@@ -128,7 +124,6 @@ resource "aws_subnet" "private-subnet-3" {
   vpc_id                   = aws_vpc.vpc.id
   cidr_block               = "${var.private-subnet-3-cidr}"
   availability_zone        = "us-east-1c"
-
   tags      = {
     Name    = "Private Subnet 3"
   }
@@ -136,12 +131,10 @@ resource "aws_subnet" "private-subnet-3" {
 
 resource "aws_route_table" "private-route-table" {
   vpc_id       = aws_vpc.vpc.id
-
   route {
     cidr_block = "10.0.4.0/24"
     gateway_id = aws_nat_gateway.Nat-1.id
   }
-
   tags       = {
     Name     = "Private Route Table"
   }
