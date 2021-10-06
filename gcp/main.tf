@@ -1,33 +1,3 @@
-#terraform {
-#  required_providers {
-#    google = {
-#      source = "hashicorp/google"
-#      version = "3.5.0"
-#    }
-#  }
-#}
-#
-#provider "google" {
-#
-#  credentials = file("D:/Zelarsoft/naveenzelarsoft/TODO/terraform/key.json")
-#  project = "focus-mechanic-328207"
-#  region  = "us-central1"
-#}
-#resource "google_compute_instance" "vm_instance" {
-#  name         = "terraform-instance"
-#  machine_type = "f1-micro"
-#
-#  boot_disk {
-#    initialize_params {
-#      image = "debian-cloud/debian-9"
-#    }
-#  }
-#  network_interface {
-#    network = "default"
-#    access_config {
-#    }
-#  }
-#}
 terraform {
   required_providers {
     google = {
@@ -38,13 +8,25 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("D:/Zelarsoft/naveenzelarsoft/TODO/terraform/key.json")
 
+  credentials = file("D:/Zelarsoft/naveenzelarsoft/TODO/terraform/key.json")
   project = "focus-mechanic-328207"
   region  = "us-central1"
   zone    = "us-central1-c"
 }
+resource "google_compute_instance" "vm_instance" {
+  name         = "terraform-instance"
+  machine_type = "f1-micro"
 
-resource "google_compute_network" "vm_instance" {
-  name = "default"
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
+  }
+
+  network_interface {
+    network = "default"
+    access_config {
+    }
+  }
 }
