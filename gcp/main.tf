@@ -12,7 +12,6 @@ provider "google" {
   credentials = file("D:/Zelarsoft/naveenzelarsoft/TODO/terraform/key.json")
   project = "focus-mechanic-328207"
   region  = "us-central1"
-  zone    = "us-central1-c"
 }
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
