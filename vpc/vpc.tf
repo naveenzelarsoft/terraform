@@ -1,19 +1,26 @@
+#terraform {
+#  backend "remote" {
+#    organization = "naveen5035"
+#
+#    workspaces {
+#      name = "sample"
+#    }
+#  }
+#  required_providers {
+#    aws = {
+#      source  = "hashicorp/aws"
+#      version = "~> 3.27"
+#    }
+#  }
+#
+#  required_version = ">= 0.14.9"
+#}
 terraform {
-  backend "remote" {
-    organization = "naveen5035"
-
-    workspaces {
-      name = "sample"
-    }
+  backend "s3" {
+    bucket = "terraform-bucket-for-tfstate-files"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
   }
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
-  }
-
-  required_version = ">= 0.14.9"
 }
 
 provider "aws" {
