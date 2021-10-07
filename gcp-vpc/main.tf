@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("D:/Zelarsoft/naveenzelarsoft/TODO/key.json")
+  credentials = file("D:/Zelarsoft/naveenzelarsoft/key.json")
 
   project = "focus-mechanic-328207"
   region  = "us-central1"
