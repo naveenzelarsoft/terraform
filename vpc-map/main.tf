@@ -1,10 +1,10 @@
-terraform {
-  backend "s3" {
-    bucket = "terraform-bucket-for-tfstate-files"
-    key    = "vpc-map"
-    region = "us-east-1"
-  }
-}
+#terraform {
+#  backend "s3" {
+#    bucket = "terraform-bucket-for-tfstate-files"
+#    key    = "vpc-map"
+#    region = "us-east-1"
+#  }
+#}
 
 provider "aws" {
   region     = "us-east-1"
